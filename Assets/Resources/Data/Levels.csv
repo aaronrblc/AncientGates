@@ -1,0 +1,5 @@
+Name,DisplayNameKey,ParTime,ParMoves
+// Formato: Name = nombre exacto del .asset en SO/Levels/
+Level01,level.01.name,120,15
+Level02,level.02.name,90,12
+Level03,level.03.name,180,20
