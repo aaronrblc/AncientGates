@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\" -Recurse -Directory | Select-Object -ExpandProperty FullName | Sort-Object | ForEach-Object { $_ -replace [regex]::Escape\\(\"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\"\\), \"\" })"
+    ]
+  }
+}
