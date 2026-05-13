@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerLook
   cameraAnchor: {fileID: 2006102169}
-  sensitivity: 2
+  sensitivity: 1
   invertY: 0
 --- !u!114 &639832853
 MonoBehaviour:
@@ -481,6 +481,88 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FpsCameraController
   defaultFov: 70
+--- !u!1001 &1141604858
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 237948557497909437, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Water_Plane_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.084479
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.2305617
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578303943269587463, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 237948557497909437, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1141604860}
+  m_SourcePrefab: {fileID: 100100000, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+--- !u!1 &1141604859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 237948557497909437, guid: a631e02a494bad24497e2620d0765f64, type: 3}
+  m_PrefabInstance: {fileID: 1141604858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1141604860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141604859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b2f064ba1d4d628fdacc3ded1b4500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SyntyWaterBobEgypt
+  bobbingHeight: 0.08
+  bobbingSpeed: 1.5
+  rotationAmount: 0.8
+  randomOffset: 1
+  randomRange: {x: 0.1, y: 1}
 --- !u!1 &1188525080
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1188525081
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -684,6 +766,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a1df41a7a1f2d4383517904ab4bcc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
+--- !u!1001 &1744642086
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.257721
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.18036802
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225659064419034949, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002159926526311935, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_SandDunes_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 457ba3d9aa0060146a63e7c3447b18b8, type: 3}
 --- !u!1 &1763655501
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,3 +909,5 @@ SceneRoots:
   - {fileID: 1449639900}
   - {fileID: 1188525084}
   - {fileID: 1238301802}
+  - {fileID: 1744642086}
+  - {fileID: 1141604858}

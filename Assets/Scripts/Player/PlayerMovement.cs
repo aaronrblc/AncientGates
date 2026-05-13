@@ -35,8 +35,14 @@ public class PlayerMovement : MonoBehaviour
         float speed = state.MoveSpeed * (sprinting ? state.SprintMultiplier : 1f);
         Vector3 move = (transform.forward * input.y + transform.right * input.x).normalized * speed;
 
+        bool jumpPressed = PlayerActionsManager.Instance.InputActions.Player.Jump.WasPressedThisFrame();
+
         if (cc.isGrounded)
+        {
             verticalVelocity = -2f;
+            if (jumpPressed)
+                verticalVelocity = state.JumpForce;
+        }
         verticalVelocity += Gravity * Time.deltaTime;
         move.y = verticalVelocity;
 
