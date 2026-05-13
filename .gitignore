@@ -58,7 +58,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.aab
-*.unitypackage
+# *.unitypackage  <-- removido: se sube via LFS
 *.app
 
 # Crashlytics generated file
