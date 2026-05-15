@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerConfig
   Id: 0
   PlayerName: 
-  MoveSpeed: 5
-  SprintMultiplier: 1.5
-  JumpForce: 5
-  InteractRange: 2.5
+  MoveSpeed: 20
+  SprintMultiplier: 2
+  JumpForce: 7
+  InteractRange: 1.7

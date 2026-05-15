@@ -16,6 +16,13 @@ public static class SceneLoaderMenu
         OpenAdditive("GameScene");
     }
 
+    [MenuItem("Tools/Scene Loader/ARTest")]
+    public static void LoadARTest()
+    {
+        OpenSingle("BootstrapScene");
+        EditorSceneManager.OpenScene("Assets/Scenes/ARTest/ARTestScene.unity", OpenSceneMode.Additive);
+    }
+
     [MenuItem("Tools/Play from Bootstrap")]
     public static void PlayFromBootstrap()
     {

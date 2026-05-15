@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public LevelConfig CurrentLevel { get; private set; }
     public RunState RunState { get; private set; }
+
+    private string _currentLevelSceneName;
 
     protected override void Awake() => base.Awake();
 
     private void OnEnable() => NotificationQueue.Subscribe(OnMessage);
     private void OnDisable() => NotificationQueue.Unsubscribe(OnMessage);
-
-    public void StartLevel(string levelId)
-    {
-        RunState = new RunState { CurrentLevelId = levelId };
-    }
 
     private void Update()
     {
@@ -20,19 +18,32 @@ public class GameManager : Singleton<GameManager>
         RunState.TimeElapsed += Time.deltaTime;
     }
 
+    public void LoadLevel(LevelConfig config)
+    {
+        CurrentLevel = config;
+        _currentLevelSceneName = SceneUtils.GetLoadedLevelSceneName();
+        RunState = new RunState { CurrentLevelId = config.Name };
+        NotificationQueue.SendMessage(new(NotificationType.LevelLoaded, config.Name, "GameManager"));
+    }
+
+    public void CompleteLevel()
+    {
+        NotificationQueue.SendMessage(new(NotificationType.LevelCompleted, CurrentLevel?.Name ?? "", "GameManager"));
+    }
+
+    public void FailLevel()
+    {
+        NotificationQueue.SendMessage(new(NotificationType.LevelFailed, CurrentLevel?.Name ?? "", "GameManager"));
+    }
+
+    public void ResetLevel()
+    {
+        NotificationQueue.SendMessage(new(NotificationType.LevelReset, CurrentLevel?.Name ?? "", "GameManager"));
+        SceneLoader.ReloadSceneAdditive(_currentLevelSceneName);
+    }
+
     private void OnMessage(Notification n)
     {
-        switch (n.Type)
-        {
-            case NotificationType.LevelCompleted:
-                // TODO: guardar stats del nivel completado
-                break;
-            case NotificationType.MovePerformed:
-                if (RunState != null) RunState.MovesUsed++;
-                break;
-            case NotificationType.HintUsed:
-                if (RunState != null) RunState.HintsUsed++;
-                break;
-        }
+        // TODO: reaccionar a LevelCompleted (guardar stats, etc.)
     }
 }

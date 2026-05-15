@@ -11,19 +11,20 @@ public enum NotificationType
     LevelLoaded,
     LevelCompleted,
     LevelFailed,
+    LevelReset,
     CheckpointReached,
 
     // Jugador
     PlayerDied,
-    MovePerformed,
-    HintRequested,
-    HintUsed,
 
     // Interacción
     InteractionPerformed,
     ItemPicked,
     DoorOpened,
     PuzzleStateChanged,
+
+    // Puzzle — El Número
+    NumberChanged,
 }
 
 public enum QueueType { Notification, Player }

@@ -10,6 +10,7 @@ public static class SceneUtils
         { SceneType.BootstrapScene, new SceneInfo("BootstrapScene") },
         { SceneType.MainMenuScene,  new SceneInfo("MainMenuScene") },
         { SceneType.GameScene,      new SceneInfo("GameScene") },
+        { SceneType.ARTestScene,    new SceneInfo("ARTestScene") },
     };
 
     public static SceneInfo GetSceneInfo(this SceneType sceneType)

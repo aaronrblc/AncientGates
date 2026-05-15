@@ -7,4 +7,5 @@ public class LevelConfig : ScriptableObject
     public string DisplayNameKey;
     public float ParTime;
     public int ParMoves;
+    public int puzzleInitialValue;
 }

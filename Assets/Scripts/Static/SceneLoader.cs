@@ -15,6 +15,17 @@ public static class SceneLoader
         AppManager.Instance.StartCoroutine(LoadLevelAsync(levelSceneName, onSceneLoaded));
     }
 
+    public static void ReloadSceneAdditive(string sceneName)
+    {
+        AppManager.Instance.StartCoroutine(ReloadSceneAdditiveAsync(sceneName));
+    }
+
+    private static IEnumerator ReloadSceneAdditiveAsync(string sceneName)
+    {
+        yield return SceneManager.UnloadSceneAsync(sceneName);
+        yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+    }
+
     public static void ReturnToMainMenu()
     {
         AppManager.Instance.ResumeGame();

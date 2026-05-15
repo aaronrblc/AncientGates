@@ -22,6 +22,6 @@ public class LevelExitTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         triggered = true;
-        LevelManager.Instance.CompleteLevel();
+        GameManager.Instance.CompleteLevel();
     }
 }
