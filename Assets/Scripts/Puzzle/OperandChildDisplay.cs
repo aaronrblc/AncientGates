@@ -10,6 +10,9 @@ public class OperandChildDisplay : MonoBehaviour
 
     public void Refresh()
     {
+#if UNITY_EDITOR
+        if (!Application.isPlaying) return;
+#endif
         var modifier = GetComponent<NumberModifier>();
         if (modifier == null || items == null) return;
         int count = modifier.OperandValue;

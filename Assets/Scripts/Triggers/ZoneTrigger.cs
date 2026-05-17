@@ -16,14 +16,25 @@ public class ZoneTrigger : MonoBehaviour
 
     [SerializeField] private bool oneShot = true;
     public UnityEvent OnPlayerEnter;
+    public UnityEvent OnPlayerExit;
 
     private bool _triggered;
+    private bool _playerInside;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
         if (oneShot && _triggered) return;
         _triggered = true;
+        _playerInside = true;
         OnPlayerEnter?.Invoke();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+        if (!_playerInside) return;
+        _playerInside = false;
+        OnPlayerExit?.Invoke();
     }
 }

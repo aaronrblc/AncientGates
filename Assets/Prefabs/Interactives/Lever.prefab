@@ -136,11 +136,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4707158655382491062}
+  - component: {fileID: 557063862116111827}
   - component: {fileID: 1828081257682439551}
   - component: {fileID: 4090336387815171284}
   - component: {fileID: 256854780307943671}
   - component: {fileID: 1352212443197005754}
-  - component: {fileID: 557063862116111827}
   - component: {fileID: 2334515956798301533}
   - component: {fileID: 1786437713486768975}
   - component: {fileID: 5823160652599548871}
@@ -175,6 +175,20 @@ Transform:
   - {fileID: 2606600297308250913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &557063862116111827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171305242962917706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e106b146eb513e04881176f7eaef5628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NumberModifier
+  operation: 2
+  operandValue: 3
 --- !u!33 &1828081257682439551
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -294,20 +308,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &557063862116111827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1171305242962917706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e106b146eb513e04881176f7eaef5628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NumberModifier
-  operation: 2
-  operandValue: 3
 --- !u!114 &2334515956798301533
 MonoBehaviour:
   m_ObjectHideFlags: 0

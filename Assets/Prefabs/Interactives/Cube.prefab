@@ -204,12 +204,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4067881881967225474}
+  - component: {fileID: 663906017425953846}
   - component: {fileID: 5206114913026780317}
   - component: {fileID: 4221933227792506700}
   - component: {fileID: 6186739143642959770}
   - component: {fileID: 7948760740151123645}
   - component: {fileID: 327608162353621839}
-  - component: {fileID: 663906017425953846}
   - component: {fileID: 1112610379502300395}
   m_Layer: 7
   m_Name: Cube
@@ -236,6 +236,20 @@ Transform:
   - {fileID: 6427617933237412188}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &663906017425953846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953354729220892162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e106b146eb513e04881176f7eaef5628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NumberModifier
+  operation: 0
+  operandValue: 5
 --- !u!33 &5206114913026780317
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -367,20 +381,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &663906017425953846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4953354729220892162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e106b146eb513e04881176f7eaef5628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NumberModifier
-  operation: 0
-  operandValue: 5
 --- !u!114 &1112610379502300395
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7224765736890059234}
   - component: {fileID: 1817110339322156354}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Temple_Top_Door_Double_02_Left_01
+  m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,6 +164,7 @@ Transform:
   - {fileID: 2323633447728093343}
   - {fileID: 6478941198565736513}
   - {fileID: 1221090848145474957}
+  - {fileID: 4719970265723083141}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4279819688681612100
@@ -257,8 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10eab36c5b9cc3c489428619400d9641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NumberReactive
-  condition: 6
-  conditionValue: 3
+  condition: 2
+  conditionValue: 1
   OnConditionMet:
     m_PersistentCalls:
       m_Calls:
@@ -325,6 +326,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0470e58f7419f1a489f481c93c1ddddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PermanentDeactivator
+  componentsToDisable:
+  - {fileID: 1423546433329827303}
+  allowDeactivation: 0
+  resetTrigger: {fileID: 6845100977527780629}
 --- !u!1 &2603278191710194020
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '% 3'
+  m_text: '> 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -534,7 +539,7 @@ GameObject:
   - component: {fileID: 3102447921119862556}
   - component: {fileID: 4768242772244887563}
   m_Layer: 0
-  m_Name: SM_Bld_Wall_Temple_Top_Door_Double_02_Right_01
+  m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,3 +652,115 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PositionMover
   offset: {x: -1.5, y: 0, z: 0}
   duration: 1.5
+--- !u!1 &6845100977527780629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4719970265723083141}
+  - component: {fileID: 6195052525240449157}
+  - component: {fileID: 3426352212237772267}
+  - component: {fileID: 7588801282812877040}
+  m_Layer: 2
+  m_Name: Reset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4719970265723083141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845100977527780629}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -2.47, y: 1.66, z: 4.63}
+  m_LocalScale: {x: 11.246038, y: 3.7261, z: 6.454516}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4312118247027848252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6195052525240449157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845100977527780629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b899f9708fee2439c8dc0a7215672a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZoneTrigger
+  oneShot: 1
+  OnPlayerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3426352212237772267}
+        m_TargetAssemblyTypeName: NumberModifier, Assembly-CSharp
+        m_MethodName: Apply
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -4241412521590562476}
+        m_TargetAssemblyTypeName: PermanentDeactivator, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3426352212237772267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845100977527780629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e106b146eb513e04881176f7eaef5628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NumberModifier
+  operation: 5
+  operandValue: 1
+--- !u!65 &7588801282812877040
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845100977527780629}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
