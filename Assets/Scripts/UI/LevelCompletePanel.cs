@@ -22,11 +22,11 @@ public class LevelCompletePanel : MonoBehaviour
             if (run != null)
             {
                 TimeSpan t = TimeSpan.FromSeconds(run.TimeElapsed);
-                statsText.text = $"Nivel completado\n{t.Minutes:D2}:{t.Seconds:D2}";
+                statsText.text = $"Test completado\n{t.Minutes:D2}:{t.Seconds:D2}\n\nGracias por jugar, por favor comparte tu opinión";
             }
             else
             {
-                statsText.text = "Nivel completado";
+                statsText.text = "Test completado\n\nGracias por jugar, por favor comparte tu opinión";
             }
         }
 

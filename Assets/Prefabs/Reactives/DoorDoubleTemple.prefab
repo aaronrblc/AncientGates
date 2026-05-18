@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 1423546433329827303}
   - component: {fileID: -4241412521590562476}
   m_Layer: 0
-  m_Name: WallTempeTopDoorDouble2
+  m_Name: DoorDoubleTemple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
