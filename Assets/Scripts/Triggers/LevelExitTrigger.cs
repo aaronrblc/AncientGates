@@ -1,27 +1,41 @@
 using UnityEngine;
 
-// Coloca este componente en un GameObject con Collider (isTrigger = true).
-// Cuando el jugador entra, emite LevelCompleted.
-// Patrón a seguir para todos los triggers: detectar → emitir notificación → NO llamar a managers directamente.
 public class LevelExitTrigger : MonoBehaviour
 {
-    private bool triggered = false;
+    private bool _triggered;
 
     private void OnEnable() => NotificationQueue.Subscribe(OnMessage);
     private void OnDisable() => NotificationQueue.Unsubscribe(OnMessage);
 
+    private void OnDrawGizmos()
+    {
+        var col = GetComponent<Collider>();
+        if (col == null) return;
+        Gizmos.color = new Color(0f, 1f, 0.4f, 0.2f);
+        Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.lossyScale);
+        if (col is BoxCollider box)
+        {
+            Gizmos.DrawCube(box.center, box.size);
+            Gizmos.color = new Color(0f, 1f, 0.4f, 0.9f);
+            Gizmos.DrawWireCube(box.center, box.size);
+        }
+        else
+        {
+            Gizmos.DrawSphere(Vector3.zero, 0.5f);
+        }
+    }
+
     private void OnMessage(Notification n)
     {
-        if (n.Type == NotificationType.LevelLoaded)
-            triggered = false;
+        if (n.Type == NotificationType.LevelLoaded) _triggered = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (triggered) return;
+        if (_triggered) return;
         if (!other.CompareTag("Player")) return;
 
-        triggered = true;
-        GameManager.Instance.CompleteLevel();
+        _triggered = true;
+        NotificationQueue.SendMessage(new(NotificationType.LevelCompleted, "", "LevelExitTrigger"));
     }
 }

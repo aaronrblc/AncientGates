@@ -35,8 +35,9 @@ public class PlayerInteraction : MonoBehaviour
 
         if (cam == null) return;
 
-        Ray ray = new(cam.transform.position, cam.transform.forward);
-        bool hit = Physics.SphereCast(ray, sphereRadius, out RaycastHit hitInfo, state.InteractRange, interactableLayers);
+        Vector3 origin = cam.transform.position - cam.transform.forward * sphereRadius;
+        Ray ray = new(origin, cam.transform.forward);
+        bool hit = Physics.SphereCast(ray, sphereRadius, out RaycastHit hitInfo, state.InteractRange + sphereRadius, interactableLayers);
 
         InteractableHighlight highlight = null;
         if (hit)

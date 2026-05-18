@@ -1,13 +1,13 @@
 using UnityEditor;
 using UnityEngine;
 
-public class PuzzleNumberDebugWindow : EditorWindow
+public class DebugToolsWindow : EditorWindow
 {
     private OperationType _operation = OperationType.Add;
     private int _operand = 1;
 
-    [MenuItem("Tools/Puzzle/Number Debugger")]
-    private static void Open() => GetWindow<PuzzleNumberDebugWindow>("Number Debugger");
+    [MenuItem("Tools/Debug Tools")]
+    private static void Open() => GetWindow<DebugToolsWindow>("Debug Tools");
 
     private void OnGUI()
     {
@@ -25,6 +25,7 @@ public class PuzzleNumberDebugWindow : EditorWindow
         }
 
         EditorGUILayout.Space(4);
+        EditorGUILayout.LabelField("— Número —", EditorStyles.boldLabel);
         EditorGUILayout.LabelField("Valor actual", manager.CurrentValue.ToString(), EditorStyles.boldLabel);
         EditorGUILayout.LabelField("Valor inicial", manager.InitialValue.ToString());
 
@@ -37,6 +38,21 @@ public class PuzzleNumberDebugWindow : EditorWindow
         EditorGUILayout.Space(4);
         if (GUILayout.Button("Aplicar"))
             manager.Apply(_operation, _operand);
+
+        EditorGUILayout.Space(12);
+        EditorGUILayout.LabelField("— Nivel —", EditorStyles.boldLabel);
+        EditorGUILayout.Space(4);
+
+        if (GUILayout.Button("Reset nivel (sin mover player)"))
+        {
+            var player = GameObject.FindWithTag("Player");
+            if (player != null)
+            {
+                LevelController.OverridePosition = player.transform.position;
+                LevelController.OverrideRotation = player.transform.rotation;
+            }
+            GameManager.Instance.ResetLevel();
+        }
     }
 
     private void OnInspectorUpdate() => Repaint();

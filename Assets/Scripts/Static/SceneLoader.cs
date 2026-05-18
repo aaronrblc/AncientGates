@@ -15,15 +15,16 @@ public static class SceneLoader
         AppManager.Instance.StartCoroutine(LoadLevelAsync(levelSceneName, onSceneLoaded));
     }
 
-    public static void ReloadSceneAdditive(string sceneName)
+    public static void ReloadSceneAdditive(string sceneName, System.Action onReloaded = null)
     {
-        AppManager.Instance.StartCoroutine(ReloadSceneAdditiveAsync(sceneName));
+        AppManager.Instance.StartCoroutine(ReloadSceneAdditiveAsync(sceneName, onReloaded));
     }
 
-    private static IEnumerator ReloadSceneAdditiveAsync(string sceneName)
+    private static IEnumerator ReloadSceneAdditiveAsync(string sceneName, System.Action onReloaded)
     {
         yield return SceneManager.UnloadSceneAsync(sceneName);
         yield return SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        onReloaded?.Invoke();
     }
 
     public static void ReturnToMainMenu()

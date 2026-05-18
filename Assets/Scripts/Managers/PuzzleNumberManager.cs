@@ -27,10 +27,17 @@ public class PuzzleNumberManager : Singleton<PuzzleNumberManager>
 
     private void OnMessage(Notification n)
     {
-        if (n.Type != NotificationType.LevelLoaded) return;
-        InitialValue = GameManager.Instance.CurrentLevel.puzzleInitialValue;
-        CurrentValue = InitialValue;
-        BroadcastCurrentValue();
+        if (n.Type == NotificationType.LevelLoaded)
+        {
+            InitialValue = GameManager.Instance.CurrentLevel.puzzleInitialValue;
+            CurrentValue = InitialValue;
+            BroadcastCurrentValue();
+        }
+        else if (n.Type == NotificationType.LevelReset)
+        {
+            CurrentValue = InitialValue;
+            BroadcastCurrentValue();
+        }
     }
 
     private void BroadcastCurrentValue()

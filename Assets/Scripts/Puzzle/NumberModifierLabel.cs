@@ -14,7 +14,7 @@ public class NumberModifierLabel : MonoBehaviour
 
     private void Awake() => UpdateLabel();
 
-    private void UpdateLabel()
+    public void UpdateLabel()
     {
         var label = GetComponent<TMP_Text>();
         if (label == null || modifier == null) return;

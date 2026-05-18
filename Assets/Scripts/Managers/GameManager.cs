@@ -38,8 +38,11 @@ public class GameManager : Singleton<GameManager>
 
     public void ResetLevel()
     {
+        RunState = new RunState { CurrentLevelId = CurrentLevel?.Name ?? "" };
         NotificationQueue.SendMessage(new(NotificationType.LevelReset, CurrentLevel?.Name ?? "", "GameManager"));
-        SceneLoader.ReloadSceneAdditive(_currentLevelSceneName);
+        SceneLoader.ReloadSceneAdditive(_currentLevelSceneName, () =>
+            NotificationQueue.SendMessage(new(NotificationType.LevelLoaded, CurrentLevel?.Name ?? "", "GameManager"))
+        );
     }
 
     private void OnMessage(Notification n)

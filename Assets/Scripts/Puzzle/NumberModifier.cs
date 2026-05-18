@@ -10,6 +10,7 @@ public class NumberModifier : MonoBehaviour
     {
         GetComponent<OperationMaterialSwitcher>()?.Apply();
         GetComponent<OperandChildDisplay>()?.Refresh();
+        GetComponentInChildren<NumberModifierLabel>()?.UpdateLabel();
     }
     [SerializeField] private int operandValue = 1;
     public int OperandValue => operandValue;

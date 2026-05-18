@@ -23,7 +23,18 @@ public class NumberReactive : MonoBehaviour
     private void OnEnable()
     {
         NotificationQueue.Subscribe(OnMessage);
-        EvaluateAndFire(PuzzleNumberManager.Instance.CurrentValue, forceFireOnEnable: true);
+        // Si ya fue inicializado (re-enable mid-game), sincronizar estado actual
+        if (_initialized)
+        {
+            bool result = Evaluate(PuzzleNumberManager.Instance.CurrentValue);
+            if (result != _lastResult)
+            {
+                _lastResult = result;
+                if (result) OnConditionMet?.Invoke();
+                else        OnConditionUnmet?.Invoke();
+            }
+        }
+        // Si !_initialized: esperar NumberChanged — CurrentValue puede ser 0 antes de LevelLoaded
     }
 
     private void OnDisable() => NotificationQueue.Unsubscribe(OnMessage);
@@ -32,15 +43,16 @@ public class NumberReactive : MonoBehaviour
     {
         if (n.Type != NotificationType.NumberChanged) return;
         int value = int.Parse(n.Content, CultureInfo.InvariantCulture);
-        EvaluateAndFire(value, forceFireOnEnable: false);
-    }
-
-    private void EvaluateAndFire(int value, bool forceFireOnEnable)
-    {
         bool result = Evaluate(value);
-        if (!_initialized || result != _lastResult || forceFireOnEnable)
+        if (!_initialized)
         {
             _initialized = true;
+            _lastResult = result;
+            if (result) OnConditionMet?.Invoke();
+            // Si no está met, la puerta ya está en estado base
+        }
+        else if (result != _lastResult)
+        {
             _lastResult = result;
             if (result) OnConditionMet?.Invoke();
             else        OnConditionUnmet?.Invoke();
