@@ -38309,9 +38309,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1894679838}
     m_Modifications:
+    - target: {fileID: 499976212999116364, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1567543672600226895, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 56.09
+      value: 49.85
       objectReference: {fileID: 0}
     - target: {fileID: 1567543672600226895, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38349,9 +38353,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1989417278582158276, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125391941590945885, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3651465039013973110, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4028842553233100381, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
       propertyPath: m_Name
       value: PatrolNPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6162522596844350434, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576856551239846233, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838401097348751845, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.12
       objectReference: {fileID: 0}
     - target: {fileID: 6838401097348751845, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38371,12 +38399,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7749187425410130549, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 5.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015976533461443591, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9051170050271568809, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: speed
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161899884172611694, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4028842553233100381, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2093089515}
   m_SourcePrefab: {fileID: 100100000, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
 --- !u!4 &922289821 stripped
 Transform:
@@ -47844,6 +47887,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 382ea0b7672a1194f9af928f2534543a, type: 3}
+--- !u!1 &1139288729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4028842553233100381, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
+  m_PrefabInstance: {fileID: 922225068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1140202722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -90577,6 +90625,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1567543672600226895, guid: 3c1df2405009bf644a7a9ed5ffb6d82e, type: 3}
   m_PrefabInstance: {fileID: 922225068}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2093089515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139288729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7842b09cb1129e14c849f7b806557158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NpcController
+  detectionDistance: 6
+  detectionEyeHeight: 1.6
+  chaseSpeed: 3
+  losePlayerDistance: 10
 --- !u!1001 &2094197889
 PrefabInstance:
   m_ObjectHideFlags: 0

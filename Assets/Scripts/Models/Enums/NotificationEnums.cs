@@ -25,6 +25,10 @@ public enum NotificationType
 
     // Puzzle — El Número
     NumberChanged,
+
+    // NPC
+    NpcPlayerDetected,
+    NpcPlayerLost,
 }
 
 public enum QueueType { Notification, Player }

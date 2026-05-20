@@ -4,7 +4,16 @@
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\" -Recurse -Directory | Select-Object -ExpandProperty FullName | Sort-Object | ForEach-Object { $_ -replace [regex]::Escape\\(\"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\"\\), \"\" })",
       "PowerShell(Rename-Item *)",
       "Bash(xargs grep -l \"ResetLevel\\\\|Reset\")",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\\\\AnimationBaseLocomotion\\\\Animations\\\\Polygon\" -Recurse)",
+      "Bash(Select-Object Name, Extension)",
+      "Bash(Sort-Object Extension, Name)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\\\\AnimationBaseLocomotion\\\\Animations\\\\Polygon\" -Recurse -File | Where-Object { $_.Extension -ne \".meta\" } | Select-Object Name | Sort-Object Name | Out-String)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\\\\AnimationBaseLocomotion\\\\Animations\\\\Polygon\\\\Masculine\" -Recurse -File | Where-Object { $_.Extension -ne \".meta\" } | Select-Object Name | Sort-Object Name | Out-String)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\\\\AnimationBaseLocomotion\\\\Animations\\\\Polygon\\\\Neutral\" -Recurse -File | Where-Object { $_.Extension -ne \".meta\" } | Select-Object Name | Out-String)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\\\\AnimationBaseLocomotion\\\\Animations\\\\Sidekick\" -Recurse -File | Where-Object { $_.Extension -ne \".meta\" } | Select-Object Name | Sort-Object Name | Out-String)",
+      "Bash(xargs grep -l \"a3a348fc313b53a44ab5b8f348e2a5eb\")"
     ]
   }
 }
