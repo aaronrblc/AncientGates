@@ -13,7 +13,10 @@
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\\\\AnimationBaseLocomotion\\\\Animations\\\\Polygon\\\\Masculine\" -Recurse -File | Where-Object { $_.Extension -ne \".meta\" } | Select-Object Name | Sort-Object Name | Out-String)",
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\\\\AnimationBaseLocomotion\\\\Animations\\\\Polygon\\\\Neutral\" -Recurse -File | Where-Object { $_.Extension -ne \".meta\" } | Select-Object Name | Out-String)",
       "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\ThirdParty\\\\Synty\\\\AnimationBaseLocomotion\\\\Animations\\\\Sidekick\" -Recurse -File | Where-Object { $_.Extension -ne \".meta\" } | Select-Object Name | Sort-Object Name | Out-String)",
-      "Bash(xargs grep -l \"a3a348fc313b53a44ab5b8f348e2a5eb\")"
+      "Bash(xargs grep -l \"a3a348fc313b53a44ab5b8f348e2a5eb\")",
+      "Bash(Get-ChildItem -Recurse -Filter \"*.unity\" \"C:\\\\Users\\\\vvada\\\\Documents\\\\Git\\\\AncientGates\\\\Assets\\\\Scenes\")",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)"
     ]
   }
 }
