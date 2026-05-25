@@ -16,6 +16,14 @@ public static class SceneLoaderMenu
         OpenAdditive("GameScene");
     }
 
+    [MenuItem("Tools/Scene Loader/Levels/LevelTestScene")]
+    public static void LoadLevelTestScene()
+    {
+        OpenSingle("BootstrapScene");
+        OpenAdditive("GameScene");
+        EditorSceneManager.OpenScene("Assets/Scenes/LevelScenes/LevelTestScene.unity", OpenSceneMode.Additive);
+    }
+
     [MenuItem("Tools/Scene Loader/ARTest")]
     public static void LoadARTest()
     {

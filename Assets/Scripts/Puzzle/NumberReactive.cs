@@ -71,15 +71,5 @@ public class NumberReactive : MonoBehaviour
         _                            => "?",
     };
 
-    private bool Evaluate(int value) => condition switch
-    {
-        ConditionType.Equals         => value == conditionValue,
-        ConditionType.NotEquals      => value != conditionValue,
-        ConditionType.GreaterThan    => value > conditionValue,
-        ConditionType.LessThan       => value < conditionValue,
-        ConditionType.GreaterOrEqual => value >= conditionValue,
-        ConditionType.LessOrEqual    => value <= conditionValue,
-        ConditionType.DivisibleBy    => conditionValue != 0 && value % conditionValue == 0,
-        _                            => false,
-    };
+    private bool Evaluate(int value) => PuzzleMath.Evaluate(value, condition, conditionValue);
 }

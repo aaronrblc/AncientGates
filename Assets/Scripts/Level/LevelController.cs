@@ -5,10 +5,12 @@ public class LevelController : MonoBehaviour
     public static Vector3? OverridePosition;
     public static Quaternion? OverrideRotation;
 
+    [SerializeField] private LevelConfig levelConfig;
     [SerializeField] private Transform startingPoint;
 
     private void Start()
     {
+        GameManager.Instance.LoadLevel(levelConfig);
         if (OverridePosition.HasValue)
         {
             PlacePlayerAt(OverridePosition.Value, OverrideRotation ?? Quaternion.identity);

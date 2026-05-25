@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NumberModifier : MonoBehaviour
+public class NumberModifier : MonoBehaviour, IInteractCondition
 {
     [SerializeField] private OperationType operation;
 
@@ -25,6 +25,13 @@ public class NumberModifier : MonoBehaviour
         OperationType.Set      => $"={operandValue}",
         _                      => "?",
     };
+
+    public bool CanInteract()
+    {
+        if (operation != OperationType.Divide) return true;
+        int current = PuzzleNumberManager.Instance.CurrentValue;
+        return operandValue != 0 && current % operandValue == 0;
+    }
 
     public void Apply() => PuzzleNumberManager.Instance.Apply(operation, operandValue);
 }

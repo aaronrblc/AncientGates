@@ -42,16 +42,17 @@ public class PlayerInteraction : MonoBehaviour
         InteractableHighlight highlight = null;
         if (hit)
         {
-            var trigger = hitInfo.collider.GetComponent<InteractableTrigger>();
-            if (trigger != null && !trigger.IsUsed)
-                highlight = hitInfo.collider.GetComponent<InteractableHighlight>();
+            var trigger = hitInfo.collider.GetComponentInParent<InteractableTrigger>();
+            if (trigger != null && !trigger.IsUsed && trigger.CanInteract())
+                highlight = hitInfo.collider.GetComponentInParent<InteractableHighlight>();
         }
 
         SetHighlight(highlight);
 
         if (hit && PlayerActionsManager.Instance.InputActions.Player.Interact.WasPressedThisFrame())
         {
-            if (hitInfo.collider.TryGetComponent<IInteractable>(out var interactable))
+            var interactable = hitInfo.collider.GetComponentInParent<IInteractable>();
+            if (interactable != null)
             {
                 interactable.OnInteract(gameObject);
                 NotificationQueue.SendMessage(new(NotificationType.InteractionPerformed, hitInfo.collider.name, "PlayerInteraction"));

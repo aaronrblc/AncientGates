@@ -13,15 +13,7 @@ public class PuzzleNumberManager : Singleton<PuzzleNumberManager>
 
     public void Apply(OperationType operation, int operand)
     {
-        switch (operation)
-        {
-            case OperationType.Add:      CurrentValue += operand; break;
-            case OperationType.Subtract: CurrentValue -= operand; break;
-            case OperationType.Multiply: CurrentValue *= operand; break;
-            case OperationType.Divide:   CurrentValue /= operand; break;
-            case OperationType.Reset:    CurrentValue = InitialValue; break;
-            case OperationType.Set:      CurrentValue = operand; break;
-        }
+        CurrentValue = PuzzleMath.Apply(CurrentValue, operation, operand, InitialValue);
         BroadcastCurrentValue();
     }
 

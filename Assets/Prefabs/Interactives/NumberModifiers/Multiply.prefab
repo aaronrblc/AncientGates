@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1786437713486768975}
   - component: {fileID: 5823160652599548871}
   m_Layer: 7
-  m_Name: Lever
+  m_Name: Multiply
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

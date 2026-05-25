@@ -1,0 +1,301 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9719deb7757107f46801190a6b5501c0, type: 3}
+  m_Name: MapaTestFeedback
+  m_EditorClassIdentifier: Assembly-CSharp::LevelDesign
+  width: 15
+  height: 7
+  initialValue: 1
+  startCell: {x: 0, y: 0}
+  exitCell: {x: 13, y: 4}
+  cells: []
+  edges:
+  - cellA: {x: 4, y: 0}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 4, y: 2}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 4, y: 3}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 4, y: 4}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 3, y: 4}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 2, y: 4}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 1, y: 4}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 0, y: 4}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 4, y: 1}
+    dir: 1
+    kind: 1
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 0}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 1}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 2}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 3}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 4}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 6, y: 5}
+    dir: 0
+    kind: 1
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 5}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 5, y: 5}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 4, y: 4}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 4, y: 5}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 4, y: 6}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 8, y: 5}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 9, y: 5}
+    dir: 0
+    kind: 1
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 10, y: 5}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 10, y: 5}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 10, y: 6}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 10, y: 4}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 10, y: 3}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 10, y: 2}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 10, y: 1}
+    dir: 1
+    kind: 1
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 10, y: 0}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 11, y: 3}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 12, y: 3}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 14, y: 3}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 12, y: 3}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 13, y: 3}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 12, y: 4}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 13, y: 5}
+    dir: 0
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 13, y: 4}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 13, y: 3}
+    dir: 0
+    kind: 1
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 13, y: 4}
+    dir: 0
+    kind: 1
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0

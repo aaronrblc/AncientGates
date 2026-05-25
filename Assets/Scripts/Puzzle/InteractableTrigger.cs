@@ -8,9 +8,16 @@ public class InteractableTrigger : MonoBehaviour, IInteractable
 
     public bool IsUsed { get; private set; }
 
+    public bool CanInteract()
+    {
+        var condition = GetComponent<IInteractCondition>();
+        return condition == null || condition.CanInteract();
+    }
+
     public void OnInteract(GameObject interactor)
     {
         if (IsUsed) return;
+        if (!CanInteract()) return;
         if (singleUse) IsUsed = true;
         OnInteracted?.Invoke();
     }
