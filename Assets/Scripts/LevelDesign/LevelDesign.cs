@@ -80,6 +80,7 @@ public class CellData
     public CellKind    kind;
     public OperationType op      = OperationType.Add;
     public int         operand   = 1;
+    public int         groupId   = 0;
     public string      notes     = "";
 }
 

@@ -61,6 +61,31 @@ Claude calculará todas las combinaciones posibles (subconjuntos × órdenes rel
 
 Única solución: coger solo `+3`.
 
+## Grupos de modificadores mutuamente exclusivos
+
+Un `ModifierGroup` fuerza al jugador a elegir **uno** de los modificadores del grupo; el resto queda inaccesible.
+
+### Configuración en Unity
+
+1. Crear un GameObject vacío en la escena del nivel (p. ej. `ModifierGroup_A`).
+2. Añadir el componente `ModifierGroup`.
+3. Elegir `Mode`:
+   - **Hide** — los descartados se desactivan (`SetActive(false)`).
+   - **Disable** — los descartados quedan visibles pero no interactuables (highlight apagado).
+4. Arrastrar a la lista `Members` los `InteractableTrigger` de los modificadores del grupo.
+
+### Efecto sobre el diseño del puzzle
+
+Al pedir un puzzle que use grupos, indicar cuáles modificadores compiten entre sí:
+
+> "Dame un puzzle con valor inicial 1, CON = 6. Modificadores: grupo A (+2, +5), grupo B (*2, *3). Solo puede usarse un modificador de cada grupo."
+
+El solver de `LevelDesigner` aún no filtra por grupos — calcular las combinaciones válidas teniendo en cuenta que solo se elige un miembro por grupo.
+
+### Reset de nivel
+
+Al recibir `LevelReset`, el grupo reactiva automáticamente a todos sus miembros (visibilidad y estado de uso).
+
 ## Notas de diseño
 
 - Con solo `+` y `-`, el valor final es `inicial + suma(escogidos)` — el orden no importa.

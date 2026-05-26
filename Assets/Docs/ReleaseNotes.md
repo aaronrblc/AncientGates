@@ -1,5 +1,13 @@
 # Release Notes — AncientGates
 
+## v0.3.0 — Grupos de modificadores mutuamente exclusivos (2026-05-26)
+
+- Nuevo componente `ModifierGroup`: agrupa modificadores en un conjunto donde solo puede activarse uno; los demás quedan ocultos o bloqueados según el modo configurado
+- Modo **Hide**: los modificadores no elegidos desaparecen de la escena al activar uno del grupo
+- Modo **Disable**: los modificadores no elegidos quedan visibles pero no interactuables (se apaga el highlight al apuntarlos)
+- El reset de nivel restaura automáticamente todos los miembros del grupo a su estado inicial
+- Uso: crear un GameObject vacío con `ModifierGroup`, elegir `Mode` y arrastrar los `InteractableTrigger` deseados a la lista `Members`
+
 ## v0.2.0 — Editor visual de esquemas de puzzles (2026-05-24)
 
 - Nueva herramienta: `Tools > Level Designer` — editor 2D top-down para diseñar esquemas de niveles sin tocar la escena

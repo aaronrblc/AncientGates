@@ -145,6 +145,12 @@ public class LevelDesignerWindow : EditorWindow
                     EditorGUI.DrawRect(cell.Shrink(6), c);
                     string lbl = cd.kind == CellKind.Reset ? "↺" : OpLabelShort(cd.op, cd.operand);
                     DrawCenteredLabel(cell, lbl, Color.black);
+                    if (cd.groupId > 0)
+                    {
+                        var badge = new Rect(cell.xMax - 14, cell.y + 2, 12, 12);
+                        EditorGUI.DrawRect(badge, new Color(0.9f, 0.7f, 0.1f));
+                        DrawCenteredLabel(badge, cd.groupId.ToString(), Color.black, 8);
+                    }
                 }
 
                 // Borde de selección
@@ -406,6 +412,8 @@ public class LevelDesignerWindow : EditorWindow
         {
             cd.op      = (OperationType)EditorGUILayout.EnumPopup("Op", cd.op);
             cd.operand = EditorGUILayout.IntField("Operando", cd.operand);
+            cd.groupId = EditorGUILayout.IntField("Grupo", cd.groupId);
+            EditorGUILayout.HelpBox("0 = sin grupo. Mismo número = mutuamente exclusivos.", MessageType.None);
         }
         cd.notes = EditorGUILayout.TextField("Notas", cd.notes);
 
@@ -544,8 +552,13 @@ public class LevelDesignerWindow : EditorWindow
         { _chainResults = null; return; }
 
         var mods = new List<(OperationType, int)>();
-        foreach (var cd in _design.cells)
+        var groupIds = new int[_design.cells.Count];
+        for (int i = 0; i < _design.cells.Count; i++)
+        {
+            var cd = _design.cells[i];
             mods.Add((cd.op, cd.kind == CellKind.Reset ? 0 : cd.operand));
+            groupIds[i] = cd.groupId;
+        }
 
         var doors = new List<(ConditionType cond, int condValue, bool overrides, int overrideVal)>();
         foreach (var k in _solverDoorOrder)
@@ -554,7 +567,7 @@ public class LevelDesignerWindow : EditorWindow
             if (e != null) doors.Add((e.cond, e.condValue, e.overridesValue, e.overrideValue));
         }
 
-        _chainResults = PuzzleSolver.SolveChain(_design.initialValue, mods, doors, 3);
+        _chainResults = PuzzleSolver.SolveChain(_design.initialValue, mods, doors, 3, groupIds);
     }
 
     private void CreateNew()

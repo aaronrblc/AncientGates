@@ -22,5 +22,6 @@ public class InteractableTrigger : MonoBehaviour, IInteractable
         OnInteracted?.Invoke();
     }
 
+    public void MarkUsed() => IsUsed = true;
     public void Reset() => IsUsed = false;
 }

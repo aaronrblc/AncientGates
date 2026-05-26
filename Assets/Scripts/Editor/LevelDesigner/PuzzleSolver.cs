@@ -34,15 +34,22 @@ public static class PuzzleSolver
     }
 
     // doors: lista ordenada de (condición, valor, override activo, valor override)
+    // groupIds: opcional — índice i → groupId del modificador i (0 = sin grupo)
     public static List<ChainResult> SolveChain(
         int levelInitial,
         List<(OperationType op, int operand)> allMods,
         List<(ConditionType cond, int condValue, bool overrides, int overrideVal)> doors,
-        int maxResults = 3)
+        int maxResults = 3,
+        int[] groupIds = null)
     {
         var results = new List<ChainResult>();
         if (doors.Count == 0 || allMods.Count > MaxModifiers) return results;
-        Recurse(levelInitial, levelInitial, new List<(OperationType op, int operand)>(allMods),
+
+        var groups = new List<int>();
+        for (int i = 0; i < allMods.Count; i++)
+            groups.Add(groupIds != null && i < groupIds.Length ? groupIds[i] : 0);
+
+        Recurse(levelInitial, levelInitial, new List<(OperationType op, int operand)>(allMods), groups,
                 doors, 0, new List<ChainZone>(), results, maxResults);
         return results;
     }
@@ -50,6 +57,7 @@ public static class PuzzleSolver
     private static void Recurse(
         int cur, int init,
         List<(OperationType op, int operand)> avail,
+        List<int> availGroups,
         List<(ConditionType cond, int condValue, bool overrides, int overrideVal)> doors,
         int di, List<ChainZone> chain,
         List<ChainResult> results, int max)
@@ -74,24 +82,45 @@ public static class PuzzleSolver
 
         for (int mask = 0; mask < (1 << n) && results.Count < max; mask++)
         {
+            // Saltar combinaciones donde dos modificadores del mismo grupo están activos
+            var usedGroups = new HashSet<int>();
+            bool validGroups = true;
+            for (int i = 0; i < n; i++)
+            {
+                if ((mask >> i & 1) == 1 && availGroups[i] > 0)
+                {
+                    if (!usedGroups.Add(availGroups[i])) { validGroups = false; break; }
+                }
+            }
+            if (!validGroups) continue;
+
             var sub = new List<(OperationType op, int operand)>();
             var rem = new List<(OperationType op, int operand)>();
+            var remGroups = new List<int>();
             for (int i = 0; i < n; i++)
-                ((mask >> i & 1) == 1 ? sub : rem).Add(avail[i]);
+            {
+                if ((mask >> i & 1) == 1)
+                    sub.Add(avail[i]);
+                else
+                {
+                    rem.Add(avail[i]);
+                    remGroups.Add(availGroups[i]);
+                }
+            }
 
             bool comm = sub.TrueForAll(m =>
                 m.op == OperationType.Add || m.op == OperationType.Subtract);
 
             if (comm || sub.Count <= 1)
             {
-                TryChainStep(cur, init, sub, rem, door, doors, di, chain, results, max);
+                TryChainStep(cur, init, sub, rem, remGroups, door, doors, di, chain, results, max);
             }
             else
             {
                 foreach (var perm in Permutations(sub))
                 {
                     if (results.Count >= max) break;
-                    TryChainStep(cur, init, perm, rem, door, doors, di, chain, results, max);
+                    TryChainStep(cur, init, perm, rem, remGroups, door, doors, di, chain, results, max);
                 }
             }
         }
@@ -101,6 +130,7 @@ public static class PuzzleSolver
         int cur, int init,
         List<(OperationType op, int operand)> perm,
         List<(OperationType op, int operand)> rem,
+        List<int> remGroups,
         (ConditionType cond, int condValue, bool overrides, int overrideVal) door,
         List<(ConditionType cond, int condValue, bool overrides, int overrideVal)> doors,
         int di, List<ChainZone> chain,
@@ -110,7 +140,7 @@ public static class PuzzleSolver
         if (!PuzzleMath.Evaluate(val, door.cond, door.condValue)) return;
         int next = door.overrides ? door.overrideVal : val;
         chain.Add(new ChainZone { sequence = perm, cond = door.cond, condValue = door.condValue });
-        Recurse(next, init, rem, doors, di + 1, chain, results, max);
+        Recurse(next, init, rem, remGroups, doors, di + 1, chain, results, max);
         chain.RemoveAt(chain.Count - 1);
     }
 

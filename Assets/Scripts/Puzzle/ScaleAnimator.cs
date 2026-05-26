@@ -7,7 +7,7 @@ public class ScaleAnimator : MonoBehaviour
     [SerializeField] private Transform leftWeight;
     [SerializeField] private Transform rightWeight;
     [SerializeField] private float tiltAngle = 30f;
-    [SerializeField] private float duration   = 1f;
+    [SerializeField] private float duration = 1f;
     [SerializeField] private AnimationCurve curve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
     private Quaternion _armStart;
@@ -17,9 +17,9 @@ public class ScaleAnimator : MonoBehaviour
 
     private void Awake()
     {
-        _armStart  = scaleArm.localRotation;
+        _armStart = scaleArm.localRotation;
         _armTarget = _armStart * Quaternion.Euler(0, 0, -tiltAngle);
-        _leftWorldRot  = leftWeight.rotation;
+        _leftWorldRot = leftWeight.rotation;
         _rightWorldRot = rightWeight.rotation;
     }
 
@@ -40,7 +40,7 @@ public class ScaleAnimator : MonoBehaviour
     // forzar la rotación mundial de los pesos anula la rotación heredada del brazo.
     private void LateUpdate()
     {
-        leftWeight.rotation  = _leftWorldRot;
+        leftWeight.rotation = _leftWorldRot;
         rightWeight.rotation = _rightWorldRot;
     }
 }
