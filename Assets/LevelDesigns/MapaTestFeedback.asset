@@ -17,7 +17,13 @@ MonoBehaviour:
   initialValue: 1
   startCell: {x: 0, y: 0}
   exitCell: {x: 13, y: 4}
-  cells: []
+  cells:
+  - position: {x: 9, y: 1}
+    kind: 0
+    op: 3
+    operand: 2
+    groupId: 0
+    notes: 
   edges:
   - cellA: {x: 4, y: 0}
     dir: 1
@@ -83,27 +89,6 @@ MonoBehaviour:
     overridesValue: 0
     overrideValue: 0
   - cellA: {x: 7, y: 0}
-    dir: 1
-    kind: 0
-    cond: 0
-    condValue: 0
-    overridesValue: 0
-    overrideValue: 0
-  - cellA: {x: 7, y: 1}
-    dir: 1
-    kind: 0
-    cond: 0
-    condValue: 0
-    overridesValue: 0
-    overrideValue: 0
-  - cellA: {x: 7, y: 2}
-    dir: 1
-    kind: 0
-    cond: 0
-    condValue: 0
-    overridesValue: 0
-    overrideValue: 0
-  - cellA: {x: 7, y: 3}
     dir: 1
     kind: 0
     cond: 0
@@ -295,6 +280,27 @@ MonoBehaviour:
   - cellA: {x: 13, y: 4}
     dir: 0
     kind: 1
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 3}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 2}
+    dir: 1
+    kind: 0
+    cond: 0
+    condValue: 0
+    overridesValue: 0
+    overrideValue: 0
+  - cellA: {x: 7, y: 1}
+    dir: 1
+    kind: 0
     cond: 0
     condValue: 0
     overridesValue: 0
