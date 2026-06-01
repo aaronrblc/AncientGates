@@ -29,7 +29,12 @@ public class NpcController : MonoBehaviour
 
     private void Update()
     {
-        if (_playerTransform == null) return;
+        if (_playerTransform == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null) _playerTransform = player.transform;
+            return;
+        }
 
         switch (State)
         {
