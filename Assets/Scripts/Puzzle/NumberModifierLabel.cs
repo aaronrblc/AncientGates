@@ -1,14 +1,15 @@
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(TMP_Text))]
 public class NumberModifierLabel : MonoBehaviour
 {
     [SerializeField] private NumberModifier modifier;
+    [SerializeField] private TMP_Text numberLabel;
+    [SerializeField] private TMP_Text operationLabel;
 
     private void OnValidate()
     {
-        if (modifier == null) modifier = GetComponentInParent<NumberModifier>();
+        if (modifier == null) modifier = GetComponent<NumberModifier>();
         UpdateLabel();
     }
 
@@ -16,8 +17,8 @@ public class NumberModifierLabel : MonoBehaviour
 
     public void UpdateLabel()
     {
-        var label = GetComponent<TMP_Text>();
-        if (label == null || modifier == null) return;
-        label.text = modifier.Label;
+        if (modifier == null) return;
+        if (numberLabel != null) numberLabel.text = modifier.Label;
+        if (operationLabel != null) operationLabel.text = modifier.OperationLabel;
     }
 }

@@ -26,6 +26,17 @@ public class NumberModifier : MonoBehaviour, IInteractCondition
         _                      => "?",
     };
 
+    public string OperationLabel => operation switch
+    {
+        OperationType.Add      => "+",
+        OperationType.Subtract => "-",
+        OperationType.Multiply => "×",
+        OperationType.Divide   => "÷",
+        OperationType.Reset    => "↺",
+        OperationType.Set      => "=",
+        _                      => "?",
+    };
+
     public bool CanInteract()
     {
         if (operation != OperationType.Divide) return true;
