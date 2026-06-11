@@ -1,5 +1,13 @@
 # Release Notes — AncientGates
 
+## v0.4.0 — Calculadora de caminos de sala (2026-06-01)
+
+- Nueva herramienta: `Tools > Khemet > Calculadora de Caminos` — ventana de editor para validar el diseño de salas de puzzle
+- Dado un número inicial, un objetivo y una lista de NPCs (cada uno con uno o más estados operación+valor), calcula cuántos caminos distintos existen una vez el jugador ha elegido el primer NPC
+- Muestra el **peor caso** global y un desglose por NPC: "si el jugador elige primero a X, quedan Y caminos posibles"
+- BFS integrado para verificar si la sala es soluble con los modificadores actuales, devolviendo la ruta mínima
+- Los caminos cuentan secuencias de cualquier subconjunto de NPCs (incluye caminos parciales donde no se usan todos), respetando que la división solo es válida si el resultado es entero exacto
+
 ## v0.3.0 — Grupos de modificadores mutuamente exclusivos (2026-05-26)
 
 - Nuevo componente `ModifierGroup`: agrupa modificadores en un conjunto donde solo puede activarse uno; los demás quedan ocultos o bloqueados según el modo configurado

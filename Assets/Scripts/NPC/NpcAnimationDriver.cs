@@ -42,6 +42,12 @@ public class NpcAnimationDriver : MonoBehaviour
 
     private void Update()
     {
+        if (_playerTransform == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            if (player != null) _playerTransform = player.transform;
+        }
+
         float rawSpeed = Vector3.Distance(transform.position, _previousPosition) / Time.deltaTime;
         _previousPosition = transform.position;
         _smoothedSpeed = Mathf.Lerp(_smoothedSpeed, rawSpeed, Time.deltaTime * 5f);
