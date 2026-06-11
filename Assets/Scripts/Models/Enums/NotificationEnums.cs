@@ -13,6 +13,7 @@ public enum NotificationType
     LevelFailed,
     LevelReset,
     CheckpointReached,
+    RoomEntered,
 
     // Jugador
     PlayerDied,
