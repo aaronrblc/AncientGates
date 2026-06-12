@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 # Ignore ThirdParty assets
 /[Aa]ssets/[Tt]hird[Pp]arty/
+
+Assets/TextMesh Pro/Resources/Fonts & Materials/*.asset
