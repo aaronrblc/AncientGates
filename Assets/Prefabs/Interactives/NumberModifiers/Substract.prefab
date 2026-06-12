@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NumberModifierLabel
   modifier: {fileID: 663906017425953846}
+  operationLabels: []
 --- !u!1 &4953354729220892162
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NumberModifierLabel
   modifier: {fileID: 663906017425953846}
+  operationLabels: []
 --- !u!1 &7613137926806627626
 GameObject:
   m_ObjectHideFlags: 0

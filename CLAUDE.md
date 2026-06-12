@@ -64,6 +64,28 @@ El Player tiene un hijo `CameraAnchor` (Transform vacío) con una `Camera` hija.
 
 Los triggers son `MonoBehaviour` en objetos con `Collider` (`isTrigger = true`). En `OnTriggerEnter(Collider)` comprueban el tag `"Player"`, usan un flag de debounce, y emiten una notificación. **NUNCA llaman a managers directamente.**
 
+### Modificadores de número (puzzles)
+
+Prefab base: `Assets/Prefabs/Interactives/NumberModifiers/GeneralModifier.prefab`
+
+Estructura fija de cada modificador:
+```
+GeneralModifier          ← InteractableTrigger + NumberModifier (lógica del puzzle)
+├── Text Number          ← TextMeshPro con el valor operando
+├── Text Operation       ← TextMeshPro con el símbolo de operación
+└── Decoration
+    ├── Dynamic          ← Objetos que reaccionan al uso; se cablea en OnInteracted del raíz
+    │   ├── Light        ← Tiene su propio Animator (ej: light_active → light_using → light_used)
+    │   └── FX_Fire_01   ← Tiene su propio Animator o se activa vía SetActive
+    └── Static           ← Decoración visual pura, sin lógica ni Animator
+```
+
+**Patrón de reacción al uso:** `InteractableTrigger.OnInteracted` (UnityEvent en el Inspector) llama a los métodos de cada subobjeto en `Dynamic` — `Animator.SetTrigger`, `GameObject.SetActive`, etc. Sin scripts adicionales. Para añadir un nuevo efecto: añadir `+` en `OnInteracted` y apuntar al subobjeto correspondiente.
+
+El `GeneralModifier` raíz **no tiene Animator**. Cada subobjeto en `Dynamic` gestiona su propia animación.
+
+Para crear un nuevo modificador: duplicar `GeneralModifier`, cambiar meshes en `Static`, añadir/quitar objetos en `Dynamic`, y cablear el `OnInteracted`.
+
 ### Pipeline CSV→SO
 
 Cuatro scripts en `Editor/`: `CsvParser`, `SoFieldWriter`, `CsvToSoImporter`, `CsvPostprocessor`. Solo actualiza assets existentes, nunca crea. Los campos de Prefab/Sprite deben excluirse del whitelist.
